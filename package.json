@@ -1,0 +1,17 @@
+{
+  "name": "the-coding-love",
+  "version": "1.0.0",
+  "description": "serverless project for posting daily programmers memes from thecodinglove.com",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Mahmoud Shawara",
+  "license": "ISC",
+  "dependencies": {
+    "@slack/web-api": "^6.4.0",
+    "axios": "^0.24.0",
+    "node-fetch": "^3.0.0",
+    "node-html-parser": "^5.0.0"
+  }
+}
