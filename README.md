@@ -4,7 +4,7 @@ A script for posting daily meme to a slack channel from thecodinglove.com
 
 ## How to use it
 1. Create a slack app https://api.slack.com/apps
-2. Go to `OAuth & Permissions` > `Bot Token Scopes` 
+2. Go to Slack apps `OAuth & Permissions` > `Bot Token Scopes` 
 3. Give it permission `files:write`
 4. Invite the app you created to the channel you want to post in memes `/invite @{YOUR_BOT_NAME}`
 5. Fork this repo
