@@ -1,6 +1,6 @@
 # Slack daily memes
 
-A script for posting daily meme from https://thecodinglove.com/ website
+A script for posting daily meme to a slack channel from thecodinglove.com
 
 ## How to use it
 1. Create a slack app https://api.slack.com/apps
