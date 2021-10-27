@@ -29,4 +29,4 @@ jobs:
 
       # Runs a set of commands using the runners shell
       - name: run the node script
-        run: node index.js
+        run: SLACK_TOKEN=${{ secrets.SLACK_TOKEN }} SLACK_CHANNELS=${{ secrets.SLACK_CHANNELS }} node index.js
