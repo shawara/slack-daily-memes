@@ -11,3 +11,6 @@ Serverless based on github actions as a crone job for posting daily memes to a s
 6. Go to forked repo `Settings` > `Secretes`  https://github.com/{USERNAME}/slack-daily-memes/settings/secrets/actions
 7. Add 2 env vars `SLACK_TOKEN` , `SLACK_CHANNELS` to your secrets
 
+P.S to make sure it is configured correctly go to https://github.com/{USERNAME}/slack-daily-memes/actions/workflows/main.yml
+And clike `Run Workflow` to trigger it manualy.
+
