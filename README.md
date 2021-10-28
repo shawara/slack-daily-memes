@@ -1,6 +1,6 @@
 # Slack daily memes
 
-A script for posting daily meme to a slack channel from thecodinglove.com
+Serverless based on github actions as a crone job for posting daily memes to a slack channel from thecodinglove.com
 
 ## How to use it
 1. Create a slack app https://api.slack.com/apps
