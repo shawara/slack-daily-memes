@@ -19,7 +19,7 @@ const uploadFileToSlack = async (fileUrl, title) => {
 }
 
 const getTodayPost = async () => {
-    const response = await axios('https://thecodinglove.com/');
+    const response = await axios('https://thecodinglove.com/random');
     const root = parse(response.data)
     const title = root.querySelector('.index-blog-post-title a').text
     const fileUrl = root.querySelector('.blog-post-content object').rawAttributes.data
