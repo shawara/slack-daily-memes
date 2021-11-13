@@ -26,15 +26,10 @@ jobs:
       - name: install node modules
         run: npm install
 
-      # Runs a set of commands using the runners shell
-      - run: echo ${{ secrets.LAST_POST }}
-
       - name: run the node script
         run: |
-          RES_TITLE=$(LAST_POST=${{ secrets.LAST_POST }} SLACK_TOKEN=${{ secrets.SLACK_TOKEN }} SLACK_CHANNELS=${{ secrets.SLACK_CHANNELS }} node index.js)
+          RES_TITLE=$(LAST_POST="${{ secrets.LAST_POST }}" SLACK_TOKEN=${{ secrets.SLACK_TOKEN }} SLACK_CHANNELS=${{ secrets.SLACK_CHANNELS }} node index.js)
           echo "POST_TITLE=$RES_TITLE" >> $GITHUB_ENV
-
-      - run: echo ${{ env.POST_TITLE }}
 
       - uses: hmanzur/actions-set-secret@v2.0.0
         with:
