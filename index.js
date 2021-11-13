@@ -33,7 +33,7 @@ const getPost = async (random = false) => {
 
 async function main() {
     const { title, fileUrl, random } = await getPost()
-    await uploadFileToSlack(fileUrl, title)
+    //await uploadFileToSlack(fileUrl, title)
     return random ? LAST_POST_TITLE : title
 }
 
