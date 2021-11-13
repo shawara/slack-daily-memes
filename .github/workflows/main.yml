@@ -30,13 +30,15 @@ jobs:
       - run: echo ${{ secrets.LAST_POST }}
 
       - name: run the node script
-        run: RES_TITLE=$(LAST_POST=${{ secrets.LAST_POST }} SLACK_TOKEN=${{ secrets.SLACK_TOKEN }} SLACK_CHANNELS=${{ secrets.SLACK_CHANNELS }} node index.js)
+        run: |
+          RES_TITLE=$(LAST_POST=${{ secrets.LAST_POST }} SLACK_TOKEN=${{ secrets.SLACK_TOKEN }} SLACK_CHANNELS=${{ secrets.SLACK_CHANNELS }} node index.js)
+          echo "POST_TITLE=$RES_TITLE" >> $GITHUB_ENV
 
-      - run: echo ${{ secrets.LAST_POST }}
+      - run: echo ${{ env.POST_TITLE }}
 
       - uses: hmanzur/actions-set-secret@v2.0.0
         with:
           name: 'LAST_POST'
-          value: $RES_TITLE
+          value: ${{ env.POST_TITLE }}
           repository: ${{ secrets.REPO }}
           token: ${{ secrets.REPO_ACCESS_TOKEN }}
