@@ -9,8 +9,11 @@ Serverless based on github actions as a crone job for posting daily memes to a s
 4. Invite the app you created to the channel you want to post in memes `/invite @{YOUR_BOT_NAME}`
 5. Fork this repo
 6. Go to forked repo `Settings` > `Secretes`  https://github.com/{USERNAME}/slack-daily-memes/settings/secrets/actions
-7. Add 2 env vars `SLACK_TOKEN` , `SLACK_CHANNELS` to your secrets
-
+   1. Add `SLACK_TOKEN` : slack bot secret token
+   2. Add `SLACK_CHANNELS` : channel names or ids comma separated
+   3. Add `REPO` : repo name `{USERSNAME}/slack-daily-memes`
+   4. Add `REPO_ACCESS_TOKEN`: [create GitHub token](https://github.com/settings/tokens/new) with permission `public_repo`
+---
 P.S to make sure it is configured correctly go to https://github.com/{USERNAME}/slack-daily-memes/actions/workflows/main.yml
 And clike `Run Workflow` to trigger it manualy.
 
