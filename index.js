@@ -1,15 +1,18 @@
-const {parse} = require('node-html-parser')
+const { parse } = require('node-html-parser')
 const axios = require("axios")
-const {WebClient} = require('@slack/web-api')
+const { WebClient } = require('@slack/web-api')
 
 
 const SLACK_CHANNELS = process.env.SLACK_CHANNELS
 const TOKEN = process.env.SLACK_TOKEN
+const LAST_POST_TITLE = process.env.LAST_POST
+
+const BASE_URL = 'https://thecodinglove.com'
 
 const client = new WebClient(TOKEN)
 
 const uploadFileToSlack = async (fileUrl, title) => {
-    const file = await axios({method: 'get', url: fileUrl, responseType: 'stream'})
+    const file = await axios({ method: 'get', url: fileUrl, responseType: 'stream' })
 
     await client.files.upload({
         channels: SLACK_CHANNELS,
@@ -18,22 +21,24 @@ const uploadFileToSlack = async (fileUrl, title) => {
     });
 }
 
-const getTodayPost = async () => {
-    const response = await axios('https://thecodinglove.com/random');
+const getPost = async (random = false) => {
+    const postsUrl = random ? `${ BASE_URL }/random` : BASE_URL
+    const response = await axios(postsUrl)
     const root = parse(response.data)
-    const title = root.querySelector('.blog-post-title').text
+    const title = root.querySelector(`.blog-post h1`).text.trim()
     const fileObj = root.querySelector('.blog-post-content object')
-    if (!fileObj) return await getTodayPost();
-    return { title, fileUrl: fileObj.rawAttributes.data };
+    if (title === LAST_POST_TITLE || !fileObj) return await getPost(true)
+    return { title, fileUrl: fileObj.rawAttributes.data, random }
 }
 
 async function main() {
-    const post = await getTodayPost()
-    await uploadFileToSlack(post.fileUrl, post.title)
+    const { title, fileUrl, random } = await getPost()
+    //await uploadFileToSlack(fileUrl, title)
+    return random ? LAST_POST_TITLE : title
 }
 
-main().then(() => {
-    console.log("Done Successfully")
+main().then((title) => {
+    console.log(title)
     process.exit(0)
 }).catch(err => {
     console.log("Failed", err)
