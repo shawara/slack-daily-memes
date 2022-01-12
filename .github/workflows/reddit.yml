@@ -29,11 +29,11 @@ jobs:
       - name: run the node script
         run: |
           RESULT=$(LAST_POST="${{ secrets.LAST_REDDIT_ID }}" SLACK_TOKEN=${{ secrets.SLACK_TOKEN }} SLACK_CHANNELS=${{ secrets.SLACK_CHANNELS }} node reddit.js)
-          echo "LAST_REDDIT_ID=$RESULT" >> $GITHUB_ENV
+          echo "REDDIT_ID=$RESULT" >> $GITHUB_ENV
 
       - uses: hmanzur/actions-set-secret@v2.0.0
         with:
-          name: 'LAST_POST'
-          value: ${{ env.LAST_REDDIT_ID }}
+          name: 'LAST_REDDIT_ID'
+          value: ${{ env.REDDIT_ID }}
           repository: ${{ secrets.REPO }}
           token: ${{ secrets.REPO_ACCESS_TOKEN }}
