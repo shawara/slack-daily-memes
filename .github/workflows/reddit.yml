@@ -28,12 +28,12 @@ jobs:
 
       - name: run the node script
         run: |
-          REDDIT_ID=$(LAST_REDDIT_ID="${{ secrets.LAST_REDDIT_ID }}" SLACK_TOKEN=${{ secrets.SLACK_TOKEN }} SLACK_CHANNELS=${{ secrets.SLACK_CHANNELS }} node reddit.js)
-          echo "REDDIT_ID=$REDDIT_ID" >> $GITHUB_ENV
+          REDDIT_IDS=$(REDDIT_CHANNELS="${{ secrets.REDDIT_CHANNELS }}" LAST_REDDIT_IDS="${{ secrets.LAST_REDDIT_IDS }}" SLACK_TOKEN=${{ secrets.SLACK_TOKEN }} SLACK_CHANNELS=${{ secrets.SLACK_CHANNELS }} node reddit.js)
+          echo "REDDIT_IDS=$REDDIT_IDS" >> $GITHUB_ENV
 
       - uses: hmanzur/actions-set-secret@v2.0.0
         with:
-          name: 'LAST_REDDIT_ID'
-          value: ${{ env.REDDIT_ID }}
+          name: 'LAST_REDDIT_IDS'
+          value: ${{ env.REDDIT_IDS }}
           repository: ${{ secrets.REPO }}
           token: ${{ secrets.REPO_ACCESS_TOKEN }}
