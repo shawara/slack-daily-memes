@@ -13,6 +13,7 @@ Serverless based on github actions as a crone job for posting daily memes to a s
    2. Add `SLACK_CHANNELS` : channel names or ids comma separated
    3. Add `REPO` : repo name `{USERSNAME}/slack-daily-memes`
    4. Add `REPO_ACCESS_TOKEN`: [create GitHub token](https://github.com/settings/tokens/new) with permission `public_repo`
+   5. Optional Add `REDDIT_CHANNELS`: to fetch memes from reddit channels you want comma seprated ex. `workchronicles,ProgrammerHumor`
 ---
 P.S to make sure it is configured correctly go to https://github.com/{USERNAME}/slack-daily-memes/actions/workflows/main.yml
 And clike `Run Workflow` to trigger it manualy.
