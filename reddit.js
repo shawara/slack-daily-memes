@@ -11,7 +11,7 @@ const fixImgUrl = url => {
 
 const getLastPost = async (channelUrl) => {
     const response = await axios(channelUrl)
-    const lastPost = response.data.data.children[0].data
+    const lastPost = response.data.data.children.find(post => post.data.preview != null).data
     const imageUrl = fixImgUrl(lastPost.preview.images[0].source.url)
     return { id: lastPost.id, title: lastPost.title, imageUrl }
 }
