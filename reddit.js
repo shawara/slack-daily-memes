@@ -5,7 +5,6 @@ const LAST_REDDIT_ID = process.env.LAST_REDDIT_ID
 
 
 const fixImgUrl = url => {
-    console.log(url)
     return url.replace(/amp;/g, "")
 }
 
