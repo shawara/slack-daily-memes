@@ -1,6 +1,7 @@
 # Slack daily memes
 
-Serverless based on github actions as a crone job for posting daily memes to a slack channel from thecodinglove.com
+Serverless based on github actions as a crone job for posting daily memes to a slack channel from `thecodinglove.com`
+and any `reddit` channels you will assign to the `REDDIT_CHANNELS` in repo Secretes
 
 ## How to use it
 1. Create a slack app https://api.slack.com/apps
