@@ -13,6 +13,7 @@ const uploadFileToSlack = async (fileUrl, title) => {
 
     await client.files.upload({
         channels: SLACK_CHANNELS,
+        initial_comment: title,
         filename: title,
         file: file.data
     });
