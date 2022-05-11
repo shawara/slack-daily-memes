@@ -17,5 +17,5 @@ and any `reddit` channels you will assign to the `REDDIT_CHANNELS` in repo Secre
    5. Optional Add `REDDIT_CHANNELS`: to fetch memes from reddit channels you want comma seprated ex. `workchronicles,ProgrammerHumor`
 ---
 P.S to make sure it is configured correctly go to https://github.com/{USERNAME}/slack-daily-memes/actions/workflows/main.yml
-And clike `Run Workflow` to trigger it manualy.
+And click `Run Workflow` to trigger it manualy.
 
